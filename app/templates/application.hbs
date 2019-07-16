@@ -7,7 +7,7 @@
       class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
       <img class="team-selector__team-logo"
         src="https://gravatar.com/avatar/0ca1be2eaded508606982feb9fea8a2b?s=200&amp;d=https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/240px-LinkedIn_logo_initials.png"
-        alt="LinkedIn">
+        alt="LinkedIn Chat Server">
     </div>
   </a>
   <a href="/ms" data-team-id="ms"
@@ -15,7 +15,7 @@
     <div class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
       <img class="team-selector__team-logo"
         src="https://gravatar.com/avatar/0ca1be2eaded508606982feb9fea8a2b?s=200&amp;d=https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/200px-Microsoft_logo.svg.png"
-        alt="Microsoft">
+        alt="Microsoft Chat Server">
     </div>
   </a>
   <div class="team-selector__add-team-button cursor-pointer p-4">
@@ -41,7 +41,7 @@
         <svg class="h-2 w-2 fill-current text-green mr-2" viewBox="0 0 20 20">
           <circle cx="10" cy="10" r="10"></circle>
         </svg>
-        <span class="team-sidebar__current-user-name text-white opacity-50 text-sm">
+        <span class="team-sidebar__current-user-name text-white text-sm">
           Mike North
         </span>
       </div>
@@ -70,14 +70,14 @@
     </div>
 
     <a href="/li/general" data-channel-id="general"
-      class="team-sidebar__channel-link py-1 px-4 text-white no-underline block opacity-75 bg-teal-dark">
+      class="team-sidebar__channel-link py-1 px-4 text-black no-underline block bg-teal">
       <span aria-hidden="true">#</span>
       general
     </a>
   </nav>
 
   <footer class="mx-4 mb-2 text-white">
-    <button class="text-white rounded bg-grey-dark hover:bg-red-darker p-2 team-sidebar__logout-button">
+    <button class="text-white rounded bg-grey-darker hover:bg-red-darker p-2 team-sidebar__logout-button">
       Logout
     </button>
   </footer>
@@ -94,19 +94,19 @@
         general
       </h3>
 
-      <h4 class="text-grey-dark text-sm truncate channel-header__description">
+      <h4 class="text-grey-darker text-sm truncate channel-header__description">
         Generally chatting about general things
       </h4>
     </div>
 
     <form
       class="ml-auto md:block border border-grey rounded-lg pl-3 pr-2 py-1 flex flex-row-reverse items-center search-form">
-      <label for="search" class="sr-only">Search messages</label>
+      <label for="search" class="sr-only">Search messages in this channel</label>
 
       <input placeholder="Search" class="appearance-none search-form__field" id="search" type="search">
 
       <button aria-label="Submit search" class="search-form__button">
-        <svg class="fill-current text-grey h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <svg aria-hidden="true" class="fill-current text-grey h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z">
           </path>
         </svg>
@@ -119,8 +119,8 @@
 
     <!-- Message -->
     <div class="flex items-start px-6 py-2 text-sm hover-target hover:bg-grey-lightest message" role="listitem">
-      <figure class="w-10 h-10 rounded overflow-hidden mr-3">
-        <img class="message__user-avatar" src="https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200" alt="">
+      <figure class="w-10 h-10 rounded overflow-hidden mr-3" role="presentation">
+        <img class="message__user-avatar" src="https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200" alt="" role="presentation">
       </figure>
 
       <div class="flex-1">
@@ -129,7 +129,7 @@
             Lisa Huang-North
           </a>
           <span class="sr-only">at</span>
-          <time class="message__timestamp text-grey-darker text-xs font-normal">
+          <time datetime="2019-04-21T12:21:38.000" class="message__timestamp text-grey-darker text-xs font-normal">
             Apr 21, 2019 12:21.38 PM
           </time>
         </h5>
@@ -141,39 +141,33 @@
 
       <button
         class="message__delete-button border-transparent hover:border-red-light show-on-hover hover:bg-red-lightest border-1 rounded mb-1 pl-3 pr-2 py-1"
-        aria-label="delete message">
-        🗑
+        aria-label="delete this message">
+        <span class="aria-hidden">🗑</span>
       </button>
     </div>
 
     <!-- Message -->
     <div class="flex items-start px-6 py-2 text-sm hover-target hover:bg-grey-lightest message" role="listitem">
-      <figure class="w-10 h-10 rounded overflow-hidden mr-3">
+      <figure class="w-10 h-10 rounded overflow-hidden mr-3" role="presentation">
         <img class="message__user-avatar"
-          src="https://en.gravatar.com/userimage/4584631/86f74019598950f6efd7b1b8e493259a.jpeg" alt="">
+          src="https://en.gravatar.com/userimage/4584631/86f74019598950f6efd7b1b8e493259a.jpeg" alt="" role="presentation">
       </figure>
-
       <div class="flex-1">
         <h5 class="text-sm">
-          <a href="#" class="message__user-name text-black font-bold no-underline hover:underline">
-            Mike North
-          </a>
-          <span class="sr-only">at</span>
-          <time class="message__timestamp text-grey-darker text-xs font-normal">
-            Apr 21, 2019 12:23.4 PM
-          </time>
+          <a href={{@user.profileURL}} class="message_user-name text-black font-bold no-underline hover:underline">{{@user.name}}</a>
+          <span class="aria-hidden">{{@icon.delete}}</span>
+          <time datetime="2019-04-19T12:23:40.000" class="message_timestamp text-grey-darker text-xs font-normal">{{@message.timestamp}}</time>
         </h5>
-
+      </div>
         <p class="message__body text-black leading-normal">
-          Hello developer, I looked at your profile and am impressed by your 14
-          years of COBOL experience. Are you happy in your current role?
+          {{@user.message}}
         </p>
       </div>
 
       <button
         class="message__delete-button border-transparent hover:border-red-light show-on-hover hover:bg-red-lightest border-1 rounded mb-1 pl-3 pr-2 py-1"
-        aria-label="delete message">
-        🗑
+        aria-label="delete this message permanently">
+        <span class="aria-hidden">{{@icon.delete}}</span>
       </button>
     </div>
 
@@ -186,21 +180,21 @@
         Message Input
       </h1>
 
-      <button class="text-3xl text-grey border-r-2 border-grey p-2" aria-label="File menu" type="button">
-        <svg class="fill-current h-6 w-6 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+      <button class="text-3xl text-grey hover:text-white hover:bg-teal hover:border-teal-darkest border-r-2 border-grey p-2" aria-label="add a file to this message" type="button">
+        <svg aria-hidden="true" class="fill-current h-6 w-6 block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path
             d="M16 10c0 .553-.048 1-.601 1H11v4.399c0 .552-.447.601-1 .601-.553 0-1-.049-1-.601V11H4.601C4.049 11 4 10.553 4 10c0-.553.049-1 .601-1H9V4.601C9 4.048 9.447 4 10 4c.553 0 1 .048 1 .601V9h4.399c.553 0 .601.447.601 1z">
           </path>
         </svg>
       </button>
 
-      <label for="message-input" class="sr-only">Message</label>
+      <label for="message-input" class="sr-only">Write a message this channel</label>
 
       <input id="message-input" class="channel-footer__message-input w-full px-4"
         placeholder="Message #general" type="text">
 
       <button disabled
-        class="channel-footer__message-send-button font-bold uppercase opacity-50 bg-grey-dark text-white border-teal-dark p-2">
+        class="channel-footer__message-send-button font-bold uppercase bg-teal-dark text-white border-teal-dark p-2">
         SEND
       </button>
     </form>
