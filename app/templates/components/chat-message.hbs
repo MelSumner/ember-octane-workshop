@@ -1,6 +1,6 @@
 <div class="flex items-start px-6 py-2 text-sm hover-target hover:bg-grey-lightest message" role="listitem">
-  <figure class="w-10 h-10 rounded overflow-hidden mr-3">
-    <img class="message__user-avatar" src="https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200" alt="">
+  <figure class="w-10 h-10 rounded overflow-hidden mr-3" role="presentation">
+    <img class="message__user-avatar" src="https://gravatar.com/avatar/96c332a96737c6668906232e39cb16ef?s=200" alt="" role="presentation">
   </figure>
 
   <div class="flex-1">
@@ -9,7 +9,7 @@
         Lisa Huang-North
       </a>
       <span class="sr-only">at</span>
-      <time class="message__timestamp text-grey-darker text-xs font-normal">
+      <time dateTime="2019-04-21T12:21:38.000" class="message__timestamp text-grey-darker text-xs font-normal">
         Apr 21, 2019 12:21.38 PM
       </time>
     </h5>
@@ -21,7 +21,7 @@
 
   <button
     class="message__delete-button border-transparent hover:border-red-light show-on-hover hover:bg-red-lightest border-1 rounded mb-1 pl-3 pr-2 py-1"
-    aria-label="delete message">
+    aria-label="permanently delete this message">
     <span class="aria-hidden">🗑</span>
   </button>
 </div>
